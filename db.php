@@ -1,4 +1,45 @@
 <?php
+
+/* Datenbank Schema (Tabelle.Column)
+
+ `HeatPumpAccessData`.`accessToken`,
+ `HeatPumpAccessData`.`refreshToken`,
+ `HeatPumpAccessData`.`ID`,
+
+ `HeatPumpEventCollection`.`Event`,
+ `HeatPumpEventCollection`.`Time`,
+ `HeatPumpEventCollection`.`EventCode`,
+ `HeatPumpEventCollection`.`ID`,
+
+ `HeatPumpTableBoilerSupplyTemperature`.`DateTime`,
+ `HeatPumpTableBoilerSupplyTemperature`.`Value`,
+
+ `HeatPumpTableCompressorStatistic`.`DateTime`,
+ `HeatPumpTableCompressorStatistic`.`Hours`,
+ `HeatPumpTableCompressorStatistic`.`Starts`,
+
+ `HeatPumpTableHeatCircuitReturnTemperature`.`DateTime`,
+ `HeatPumpTableHeatCircuitReturnTemperature`.`Value`,
+
+ `HeatPumpTableHeatCircuitSupplyTemperature`.`DateTime`,
+ `HeatPumpTableHeatCircuitSupplyTemperature`.`Value`,
+
+ `HeatPumpTableHotWaterTemperature`.`DateTime`,
+ `HeatPumpTableHotWaterTemperature`.`Value`, 
+
+ `HeatPumpTableOutsideTemperature`.`DateTime`, 
+ `HeatPumpTableOutsideTemperature`.`Value`,
+
+ `HeatPumpTablePrimarySupplyTemperature`.`DateTime`, 
+ `HeatPumpTablePrimarySupplyTemperature`.`Value`, 
+
+ `HeatPumpTableSecondarySupplyTemperature`.`DateTime`, 
+ `HeatPumpTableSecondarySupplyTemperature`.`Value`, 
+
+ `HeatPumpTableVolumeFlow`.`DateTime`, 
+ `HeatPumpTableVolumeFlow`.`Value`
+*/
+
     include('database/config.php');
 
     // Funktion zur Ausgabe eines Arrays in eine Datei     
@@ -79,118 +120,18 @@
         $statement1->execute();
     }
 
-        // Funktion zum speichern der Compressor statistic
-        function storeHeatPumpCompressorStatistic($property, $time, $hours, $starts)
-        {
-            $table = "HeatPumpTable".$property;
-            $sql = implode(" ",[
-                "INSERT INTO $table (`DateTime`, `Hours`, `Starts`) ",
-                "VALUES ('$time', $hours, $starts);"
-            ]);
-            echo ($sql);
-            $pdo = GetPDO(); 
-            $statement1 = $pdo->prepare($sql);
-            $statement1->execute();
-        }
+    // Funktion zum speichern der Compressor statistic
+    function storeHeatPumpCompressorStatistic($property, $time, $hours, $starts)
+    {
+        $table = "HeatPumpTable".$property;
+        $sql = implode(" ",[
+            "INSERT INTO $table (`DateTime`, `Hours`, `Starts`) ",
+            "VALUES ('$time', $hours, $starts);"
+        ]);
+        echo ($sql);
+        $pdo = GetPDO(); 
+        $statement1 = $pdo->prepare($sql);
+        $statement1->execute();
+    }
     
-    // Funktion gibt die aktuelle Anzahl der Datensätze aus der ShortTimeTable zurück
-    function getShortTimeTableCount()
-    {
-        $sql = "SELECT COUNT(`ID`) FROM ShortTimeDataCache";
-
-        $pdo = GetPDO(); 
-        $statement1 = $pdo->prepare($sql);
-        $statement1->execute();
-        return $statement1->fetch(PDO::FETCH_ASSOC);
-    }
-
-    function deleteRawDataAfterAveraging()
-    {
-        $sql = "DELETE from `ShortTimeDataCache` ORDER BY `ID` LIMIT 10";
-
-        $pdo = GetPDO(); 
-        $statement1 = $pdo->prepare($sql);
-        $statement1->execute();       
-    }
-
-
-    function getAveragedValues()
-    {
-        $sql = implode(" ", [
-            "SELECT MAX(`utc`),",
-            "AVG(`temp_indoor`), AVG(`humidity_indoor`),",
-            "AVG(`temp_outdoor`), AVG(`humidity_outdoor`),",
-            "AVG(`baro_rel`), AVG(`baro_abs`),",
-            "AVG(`windspeed`), MAX(`windgust`), AVG(`winddirection`),",
-            "SUM(`actual_rain`),",
-            "AVG(`solar_radiation`), AVG(`uv`)",
-            "FROM ( Select * from `ShortTimeDataCache` LIMIT 10) as alias",
-        ]);
-
-        $pdo = GetPDO(); 
-        $statement1 = $pdo->prepare($sql);
-        $statement1->execute();
-        return $statement1->fetch(PDO::FETCH_ASSOC);              
-    }
-
-    // Funktion zum Speichern der aktuellen Werte in die ShortTime Tabelle
-    function storeDataIntoShortTimeTable($DataToStore)
-    {
-        $sql = implode(" ", [
-            "INSERT INTO ShortTimeDataCache (",
-            "`utc`,",
-            "`temp_indoor`, `humidity_indoor`,",
-            "`temp_outdoor`, `humidity_outdoor`,",
-            "`baro_rel`, `baro_abs`,",
-            "`windspeed`, `windgust`, `winddirection`,",
-            "`actual_rain`,",
-            "`solar_radiation`, `uv`",
-            ") VALUES (",
-            ":date_time,",
-            ":indoortemp_c, :indoorhumidity,",
-            ":temp_air_2m_0_c, :humidity,",
-            ":baromin, :absbaromin,",
-            ":windspeed, :windgust, :winddir,",
-            ":rainin,",
-            ":solar_radiation_0, :uvi_0",
-            ")",
-        ]);
-
-        $pdo = GetPDO(); 
-        $statement1 = $pdo->prepare($sql);
-        $statement1->execute($DataToStore);
-    }
-
-    // Funktion zum Speichern der aktuellen Werte in die Tabelle
-    function storeDataIntoTable($DataToStore)
-    {
-        $sql = implode(" ", [
-            "INSERT INTO StationMetricData (",
-            "`date_time`, `date`, `time`,",
-            "`temp_air_2m_0_c`, `temp_dewpoint_c`, `temp_wct_c`, `humidity`,",
-            "`baromin`, `absbaromin`,",
-            "`windspeed`, `windbft`, `windbfttxt`, `windgust`, `gustbft`, `gustbfttxt`, `winddir`,",
-            "`rainin`, `dailyrainin`, `weeklyrainin`, `monthlyrainin`, `yearlyrainin`,",
-            "`solar_radiation_0`, `uvi_0`, `uvi_txt`,",
-            "`indoortemp_c`, `indoorhumidity`,",
-            "`sunset`, `sunrise`,",
-            "`mondphase`, `winddirkurz`, `winddirlang`",
-            ") VALUES (",
-            ":date_time, :date, :time,",
-            ":temp_air_2m_0_c, :temp_dewpoint_c, :temp_wct_c, :humidity,",
-            ":baromin, :absbaromin,",
-            ":windspeed, :windbft, :windbfttxt, :windgust, :gustbft, :gustbfttxt, :winddir,",
-            ":rainin, :dailyrainin, :weeklyrainin, :monthlyrainin, :yearlyrainin,",
-            ":solar_radiation_0, :uvi_0, :uvi_txt,",
-            ":indoortemp_c, :indoorhumidity,",
-            ":sunset, :sunrise,",
-            ":mondphase, :winddirkurz, :winddirlang",
-            ")",
-        ]);
-
-    	$pdo = GetPDO(); 
-        $statement1 = $pdo->prepare($sql);
-	    $statement1->execute($DataToStore);
-    }
-
 ?>

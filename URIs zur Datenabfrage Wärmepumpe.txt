@@ -1,42 +1,42 @@
 Vorlauf Temperatur Heizkreis 
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.circuits.0.sensors.temperature.supply
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.circuits.0.sensors.temperature.supply
 
 Rücklauf Temperatur Heizkreis
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.sensors.temperature.return
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.sensors.temperature.return
 
 Status Zirkulationspumpe
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.dhw.pumps.circulation
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.dhw.pumps.circulation
 
 Temperatur Warmwasserspeicher
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.dhw.sensors.temperature.hotWaterStorage
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.dhw.sensors.temperature.hotWaterStorage
 
 Solltemperatur Warmwasserspeicher
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.dhw.temperature.main
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.dhw.temperature.main
 
 Außentemperatur 
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.sensors.temperature.outside
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.sensors.temperature.outside
 
 Ist der Kompressor an?
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.compressors.0
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.compressors.0
 
 Kompressor Statistik (Laufzeit und Anzahl der Aktivierungen)
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.compressors.0.statistics
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.compressors.0.statistics
 
 Stromverbrauch Statistik (letzte 8 Tage, letzte 8 Wochen, letzte 13 Monate, letzte 2 Jahre)
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.power.consumption.total
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.power.consumption.total
 
 Stromverbrauch Statistik Warmwasser (letzte 8 Tage, letzte 8 Wochen, letzte 13 Monate, letzte 2 Jahre)
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.power.consumption.dhw
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.power.consumption.dhw
 
 Stromverbrauch Statistik Heizung (letzte 8 Tage, letzte 8 Wochen, letzte 13 Monate, letzte 2 Jahre)
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.power.consumption.heating
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.power.consumption.heating
 
 Stromverbrauch Kurzstatistik Heizung (aktuell Tag Woche Monat Jahr, letzte 7 Tage, letzte Woche Monat Jahr)
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.power.consumption.summary.heating
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.power.consumption.summary.heating
 
 Stromverbrauch Kurzstatistik Warmwasser (aktuell Tag Woche Monat Jahr, letzte 7 Tage, letzte Woche Monat Jahr)
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.power.consumption.summary.dhw
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.power.consumption.summary.dhw
 
 Volumenstrom
-https://api.viessmann.com/iot/v1/equipment/installations/2064571/gateways/7736172004922217/devices/0/features/heating.sensors.volumetricFlow.allengra
+https://api.viessmann.com/iot/v1/equipment/installations/<ID>/gateways/<gateway ID>/devices/0/features/heating.sensors.volumetricFlow.allengra
 
