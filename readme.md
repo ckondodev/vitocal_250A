@@ -21,4 +21,4 @@ __Dennoch übernehme ich keine Garantie für den Code!__
 * In der Datei __database/config.php__ müssen die Zugangsdaten zur mySQL Datenbank eingetragen werden.
 * Die Tabellen in der Datenbank müssen im Vorfeld manuell angelegt worden sein. Die Php Scripte legen selber keine Tabellen an.
 
-Bitte unbedingt auch die Anleitung unter [Viessmann Developer](https://app.developer.viessmann.com) lesen. Dort werden die notwendigen Schritte für die Anmeldung näher erläutert.
+Bitte unbedingt auch die Anleitung unter [Viessmann Developer](https://app.developer.viessmann.com) lesen. Dort werden die notwendigen Schritte für die Anmeldung näher erläutert. Unter anderem wird hier auch die ClientID erzeugt, die für die OAuth Anmeldung notwendig ist. Als OAuth Provider nutze ich [auth0.com](https://auth0.com/).
