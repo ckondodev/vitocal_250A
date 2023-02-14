@@ -16,6 +16,6 @@ __Dennoch übernehme ich keine Garantie für den Code!__
 * Den Aufruf dieser php Scripte erledigt bei mir eine Wetterstation, die regelmäßig Daten auf die Webseite schickt. Das kann aber auch in einem Cron Job erledigt werden. Zum Speichern der Daten müssen diese beiden Scripte nur regelmäßig aufgerufen werden. Ein 5-10 Minuten Takt liefert sehr detailierte Daten. Aber auch ein 20 oder 30 Minuten Takt liefert gute Werte.
 
 ### Was fehlt ?
-* In den Dateien müssen einige Daten eingefügt werden. Diese Stellen sind durch Platzhalter in spitzen Klammern gekennzeichnet. <ID>, <GUID>, <URI>, ...
+* In den Dateien müssen einige Daten eingefügt werden. Diese Stellen sind durch Platzhalter in spitzen Klammern gekennzeichnet. Das können zum Beispiel diese Platzhalter sein:  ```<ID>, <GUID>, <URI>, ...```
 * In der Datei __database/config.php__ müssen die Zugangsdaten zur mySQL Datenbank eingetragen werden.
 * Die Tabellen in der Datenbank müssen im Vorfeld manuell angelegt worden sein. Die Php Scripte legen selber keine Tabellen an.
