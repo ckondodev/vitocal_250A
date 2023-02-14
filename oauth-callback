@@ -1,15 +1,14 @@
 <?php
 
-include('db.php');
-
 $clientid='<client GUID from viessmann developer>'; 
 $code_verif='<Code verifier from auth0>'; 
+
 
 $url = 'https://iam.viessmann.com/idp/v2/token';
 $data = array(
 'grant_type'=>'authorization_code',
 'client_id'=>$clientid,
-'redirect_uri' => 'http://<URI der Webseite>/<Path>/',
+'redirect_uri' => '<URI> to oauth-callback',
 'code_verifier' => $code_verif,
 'code'=>$_GET['code']);
 
@@ -24,8 +23,8 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
-$json = json_decode($result, true);
-$token = $json['access_token'];
-$refresh = $json['refresh_token'];
-storeTokens($token, $refresh);
+
+var_dump($result);
+
+
 ?>
