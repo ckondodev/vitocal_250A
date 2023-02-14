@@ -4,9 +4,12 @@
 Datenabfrage der Viessmann API von einer gehosteten PHP Webseite in eine gehostete MySQL Datenbank. Kann beim gleichen Provider sein, muss aber nicht.
 
 
+
 Die php Scripte waren ursprünglich nicht für die Weitergabe bestimmt, aber ich habe mal versucht alle persöhnlichen Zugangsdaten zu entfernen. In PHP habe ich nicht so viel Erfahrung, daher kann es sein, dass der Code nicht perfekt ist. Aber bei mir tut er, was er soll.
 
+
 __Dennoch übernehme ich keine Garantie für den Code!__
+
 
 
 Durch den Aufruf der wp.php Seite erfolgt eine Anmeldung bei der API und die Messdaten werden abgefragt.
