@@ -8,6 +8,8 @@ Die php Scripte waren ursprünglich nicht für die Weitergabe bestimmt, aber ich
 
 __Dennoch übernehme ich keine Garantie für den Code!__
 
+ACHTUNG: Der Code enthält auch noch Debug Ausgaben, die ggf. Interna der Anlage anzeigen. Daher die Links auf die eigenen, fertig konfigurierten, Systeme __nicht__ öffentlich weitergeben.
+
 
 ### Wie funktioniert das?
 * Durch den Aufruf der __wp.php__ Seite erfolgt eine Anmeldung bei der API und die Messdaten werden abgefragt.
